@@ -137,7 +137,7 @@
         </div>
         <div class="actions">
           <button class="btn ghost" id="codex">📚 ${L(PA.S.codex)} (${PA.state.codex.length})</button>
-          <button class="btn ghost" id="print">🖨️ ${L({ en: 'Print certificate', fr: 'Imprimer le certificat' })}</button>
+          <button class="btn ghost" id="print" ${window.self === window.top ? '' : 'hidden'}>🖨️ ${L({ en: 'Print certificate', fr: 'Imprimer le certificat' })}</button>
           <button class="btn ghost" id="again">↺ ${L({ en: 'Play again', fr: 'Rejouer' })}</button>
         </div>
       </div>`.replace('{company}', s.company));
