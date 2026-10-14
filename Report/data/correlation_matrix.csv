@@ -1,0 +1,6 @@
+,Global equities,IG bonds,Gold,Listed private equity,Hedge fund replication
+Global equities,1.000,0.285,0.187,0.899,0.881
+IG bonds,0.285,1.000,0.370,0.293,0.443
+Gold,0.187,0.370,1.000,0.123,0.284
+Listed private equity,0.899,0.293,0.123,1.000,0.790
+Hedge fund replication,0.881,0.443,0.284,0.790,1.000

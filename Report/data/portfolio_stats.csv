@@ -1,0 +1,8 @@
+,CAGR,Volatility,Sharpe,Max drawdown,Downside vol,Calmar
+AI default 60/40,0.0869,0.0963,0.7695,-0.2124,0.0628,0.4093
+Diversified with alternatives,0.0861,0.1008,0.7315,-0.2230,0.0674,0.3860
+Global equities,0.1255,0.1496,0.7739,-0.2574,0.0987,0.4878
+IG bonds,0.0250,0.0439,0.2616,-0.1713,0.0319,0.1459
+Gold,0.0857,0.1689,0.4881,-0.4291,0.0965,0.1998
+Listed private equity,0.1080,0.2225,0.5112,-0.4519,0.1561,0.2389
+Hedge fund replication,0.0352,0.0513,0.4240,-0.1377,0.0345,0.2555

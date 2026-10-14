@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Winning the AI Native Investor</title>
+<style>
+@page { size: A4; margin: 22mm 20mm 20mm 20mm; }
+@page :first { margin: 0; }
+:root { --navy:#0b2545; --blue:#2a78d6; --ink:#1b1b1b; --ink2:#52514e; --muted:#8a8984; --rule:#d9d8d3; --tint:#f3f6fb; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Inter", "Liberation Sans", sans-serif; font-size: 9.6pt; line-height: 1.5; color: var(--ink); margin: 0; background: #fff; }
+h1, h2, h3, .serif { font-family: "Bitstream Charter", "Caladea", Georgia, serif; font-weight: normal; color: var(--navy); }
+h1 { font-size: 22pt; line-height: 1.15; margin: 0 0 6mm; }
+h2 { font-size: 13.5pt; margin: 7mm 0 2.5mm; }
+h3 { font-size: 11pt; margin: 5mm 0 1.5mm; font-weight: bold; }
+p { margin: 0 0 2.6mm; text-align: left; }
+.chapter { break-before: page; }
+.kicker { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 2mm; }
+.lead { font-size: 11pt; line-height: 1.5; color: var(--ink2); margin-bottom: 5mm; }
+.exhibit { break-inside: avoid; margin: 5mm 0 5mm; border-top: 1.5px solid var(--navy); padding-top: 2mm; }
+.exhibit .label { font-size: 7.8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); font-weight: 600; }
+.exhibit .title { font-family: "Bitstream Charter", "Caladea", Georgia, serif; font-size: 11pt; color: var(--navy); margin: .5mm 0 2.5mm; }
+.exhibit img { width: 100%; display: block; }
+.exhibit img.narrow { width: 82%; margin: 0 auto; }
+.exhibit .src { font-size: 7.2pt; color: var(--muted); margin-top: 1.5mm; line-height: 1.35; }
+table { border-collapse: collapse; width: 100%; font-size: 8.3pt; margin: 2mm 0 2mm; }
+th { text-align: left; font-weight: 600; color: var(--navy); border-bottom: 1.2px solid var(--navy); padding: 1.6mm 1.8mm; vertical-align: bottom; }
+td { border-bottom: .6px solid var(--rule); padding: 1.6mm 1.8mm; vertical-align: top; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+.box { background: var(--tint); border-left: 3px solid var(--blue); padding: 3.5mm 4.5mm; margin: 4mm 0; break-inside: avoid; }
+.box p:last-child { margin-bottom: 0; }
+.box .h { font-weight: 600; color: var(--navy); margin-bottom: 1.2mm; }
+.question { font-family: "Bitstream Charter", "Caladea", Georgia, serif; font-size: 13pt; line-height: 1.45; color: var(--navy); border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy); padding: 4mm 0; margin: 4mm 0 5mm; }
+ol.plain { padding-left: 5mm; margin: 0 0 3mm; } ol.plain li { margin-bottom: 1.6mm; }
+sup.ref { font-size: 6.6pt; color: var(--blue); }
+a { color: inherit; text-decoration: none; }
+.refs p { font-size: 7.8pt; line-height: 1.4; margin-bottom: 1.4mm; padding-left: 7mm; text-indent: -7mm; word-break: break-word; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.tree { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 3mm; margin: 3mm 0; }
+.tree div { border: 1px solid var(--rule); border-top: 3px solid var(--blue); padding: 2.5mm 3mm; font-size: 8.3pt; background: #fff; }
+.tree div b { color: var(--navy); display: block; margin-bottom: 1mm; }
+.journey { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2mm; margin: 3mm 0; }
+.journey div { background: var(--tint); padding: 2.5mm; font-size: 8pt; border-top: 3px solid var(--navy); }
+.journey div b { display: block; color: var(--navy); margin-bottom: 1mm; font-size: 8.4pt; }
+.toc p { margin: 0 0 1.8mm; display: flex; justify-content: space-between; border-bottom: .5px dotted var(--rule); }
+.small { font-size: 8pt; color: var(--ink2); }
+/* Cover */
+.cover { height: 297mm; width: 210mm; background: var(--navy); color: #fff; position: relative; break-after: page; }
+.cover .inner { position: absolute; left: 22mm; right: 22mm; top: 70mm; }
+.cover .tag { font-size: 8.5pt; letter-spacing: .16em; text-transform: uppercase; color: #9cc0ee; margin-bottom: 8mm; }
+.cover h1 { color: #fff; font-size: 34pt; margin-bottom: 7mm; }
+.cover .sub { font-family: "Bitstream Charter", Georgia, serif; font-size: 15pt; line-height: 1.4; color: #dbe6f5; max-width: 150mm; }
+.cover .foot { position: absolute; left: 22mm; right: 22mm; bottom: 22mm; font-size: 8.5pt; color: #b8c8e0; border-top: 1px solid #3c5578; padding-top: 4mm; line-height: 1.6; }
+.cover .bar { position: absolute; left: 22mm; top: 52mm; width: 30mm; height: 3px; background: var(--blue); }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="bar"></div>
+  <div class="inner">
+    <div class="tag">Lombard Odier &middot; Associate Banker Programme &middot; Project report</div>
+    <h1>Winning the AI Native Investor</h1>
+    <div class="sub">Why next generation clients still need a private bank to invest, and how Lombard Odier can prove it with diversified allocations built on alternative assets</div>
+  </div>
+  <div class="foot">
+    Prepared by the associate banker working group for the Managing Partners<br>
+    Geneva, October 2026 &middot; Draft for discussion<br>
+    Based on public sources only. Figures marked as assumptions are placeholders to be replaced with internal Lombard Odier data. This document does not constitute investment advice.
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Contents</div>
+  <div class="toc">
+    <p><span>Executive summary</span><span>3</span></p>
+    <p><span>1. The key question</span><span>5</span></p>
+    <p><span>2. A shifting landscape</span><span>7</span></p>
+    <p><span>3. Competitive landscape</span><span>10</span></p>
+    <p><span>4. Where AI falls short</span><span>13</span></p>
+    <p><span>5. Lombard Odier's right to win</span><span>19</span></p>
+    <p><span>6. The pilot: Bring Your AI Portfolio</span><span>21</span></p>
+    <p><span>7. Deliverables and how we will produce them</span><span>23</span></p>
+    <p><span>8. Economics and KPIs</span><span>25</span></p>
+    <p><span>9. Risks and mitigations</span><span>27</span></p>
+    <p><span>10. Decision requested from the Partners</span><span>28</span></p>
+    <p><span>Appendix A. Client interview guide</span><span>29</span></p>
+    <p><span>Appendix B. AI answer audit protocol</span><span>30</span></p>
+    <p><span>Appendix C. Methodology and data</span><span>31</span></p>
+    <p><span>Appendix D. Sources</span><span>32</span></p>
+  </div>
+  <p class="small" style="margin-top:8mm">Page numbers are indicative of the printed A4 edition. All analyses, data files and the code used to produce every exhibit are published alongside this report in the <i>Report/analysis</i> and <i>Report/data</i> folders of the project repository, so that every figure can be reproduced and challenged.</p>
+  <div class="box" style="margin-top:8mm">
+    <div class="h">How to read this report</div>
+    <p>Each chapter opens with its conclusion. Exhibits carry an action title stating what the data shows, followed by the source. Numbers in square brackets refer to the numbered sources in Appendix D. Where we rely on our own judgement, for example in the competitive scoring, we say so explicitly and propose how the judgement will be tested during the first month of the project.</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Executive summary</div>
+  <h1>The answer first</h1>
+  <p class="lead">Next generation clients already ask an AI assistant how to invest. The assistant gives a competent answer for liquid markets and a weak one for everything else. Lombard Odier should stop arguing against AI and start competing on the ground where AI is structurally weakest: building, sourcing and running diversified allocations that include genuine alternative assets. We propose to prove this with a twelve week pilot, Bring Your AI Portfolio, and to ask the Partners for a go or no go decision in January 2027.</p>
+
+  <h3>What we found</h3>
+  <ol class="plain">
+    <li><b>The prize is large and mobile.</b> Around USD 83 trillion will pass between generations globally over the next 20 to 25 years [3], and 81% of next generation high net worth inheritors say they plan to move assets to a different firm within one to two years of inheriting [5]. For a house with CHF 367 billion of client assets at June 2026 [2], retention of the next generation is the single largest value lever.</li>
+    <li><b>The next generation wants exactly what we sell, and asks AI first.</b> Younger wealthy investors allocate 17% of their portfolios to alternatives against 5% for older investors, and 72% doubt that stocks and bonds alone can deliver above average returns [7]. At the same time, 70% of UK investors aged 18 to 34 already use ChatGPT for investing [9], and 41% of Gen Z and Millennial investors would let an AI manage their money [8].</li>
+    <li><b>AI can recommend alternatives but cannot deliver them.</b> When AI tools implement "alternatives", they use liquid wrappers. Our analysis of 17 years of monthly data shows that listed private equity and hedge fund replication ETFs have correlations of 0.90 and 0.88 with global equities. Adding them to a 60/40 portfolio did not reduce drawdowns at all. In 2022 the listed private equity ETF lost 37% while the HFRI 500 Macro index of real hedge fund managers gained 14% [39]. In private equity, the gap between top and bottom decile managers is about 20 percentage points, against 2 points in public equity [40]. Access, selection, commitment pacing and liquidity planning are where the value sits, and none of them can be produced by a chatbot.</li>
+    <li><b>Competitors are moving.</b> J.P. Morgan Private Bank has grown client alternatives to more than USD 200 billion [24]. UBS has won the Euromoney award for next generation clients two years running [23]. Platforms such as iCapital (USD 257 billion of alternative platform assets [28]) and Moonfare are democratising access, and evergreen fund assets doubled between 2022 and 2025 [16]. Lombard Odier has the ingredients (private assets, hedge funds, structured products, award winning digital platform [32]) but no distinctive way of pitching them to an AI native client.</li>
+  </ol>
+
+  <h3>What we recommend</h3>
+  <p>Reposition the investment conversation from "trust us" to "test us". In the Bring Your AI Portfolio pilot, a prospect or next generation client brings the allocation their AI assistant proposed. The banker compares it, live and transparently, with a Lombard Odier allocation that integrates alternatives, using a purpose built comparison tool: stress tests, correlation, liquidity schedule and the commitment plan an AI cannot produce. The client leaves with a prompt pack that invites their own AI to challenge our proposal. Effects are measured against a matched control group approached in the usual way.</p>
+
+  <h3>What we ask the Partners to decide</h3>
+  <p>Today: approve the twelve week project, a cash budget of about CHF 120,000, access to anonymised client data, and two sponsors (one Partner, one Head of Investment Solutions). In week 12: decide whether to roll out the approach to all next generation relationships in 2027, based on predefined go criteria described in Chapter 10.</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 1</div>
+  <h1>The key question</h1>
+  <p class="lead">Our notes started with a blunt client question: in the age of AI, why would I need a private bank to invest my money? We turned it into a question that a team of ten can answer in three months and that leads to a decision.</p>
+
+  <div class="question">In the age of AI, why would a next generation client still need a private bank to invest their money? What concrete, pilot ready initiative can Lombard Odier launch to convince AI native clients that its diversified allocations, built with alternative assets, deliver value AI alone cannot, and to measurably grow its share of their investable wealth?</div>
+
+  <h2>1.1 Why this question now</h2>
+  <p>Three forces converge. First, generative AI has become a mass market adviser: OpenAI reported more than 700 million weekly ChatGPT users by mid 2025, and "practical guidance" is the largest category of use, at about 29% of messages [11]. Second, the wealth transfer is accelerating: Capgemini estimates that 30% of next generation high net worth individuals will have inherited by 2030 and 63% by 2035 [5]. Third, alternatives are being packaged for individuals at an unprecedented pace, through evergreen funds, ELTIFs and tokenised vehicles [16, 17, 18]. A next generation client can therefore receive a credible looking allocation, including an "alternatives" sleeve, in seconds and for free. If the private bank's investment pitch still rests on access to research and a well constructed equity and bond portfolio, the pitch is already obsolete.</p>
+  <p>The question also matters for profitability. Swiss private banks managed a record CHF 3.5 trillion in 2025, yet their average cost income ratio rose to about 78% and profits declined [19]. KPMG notes that AI has so far brought hardly any measurable financial benefit to Swiss private banks [19]. Growth must therefore come from winning wallet share, not only from cutting cost.</p>
+
+  <h2>1.2 Scope</h2>
+  <p>We focus on the investment value proposition only. The role of Lombard Odier in security, custody, credit and wealth planning is not questioned in this work; clients and AI tools alike recognise that these services require a regulated institution. We also take the product range as given. Lombard Odier already offers private assets, hedge funds and structured products. The problem is not what we offer, but how we pitch and deliver diversified allocations that include these products to clients who use AI as their first adviser.</p>
+  <p>The target segment is the next generation of existing client families (heirs and spouses aged roughly 25 to 45) and young entrepreneurs with liquidity events, typically with CHF 1 million to CHF 25 million of investable assets.</p>
+
+  <h2>1.3 How we approached it</h2>
+  <p>We broke the key question into four sub questions, each owned by a workstream of two or three associates. Each sub question has a hypothesis that the pilot is designed to confirm or reject.</p>
+  <div class="tree">
+    <div><b>1. Client</b>How does the next generation use AI to invest, and where does AI leave them without an answer (access, execution, illiquidity, trust)?<br><br><i>Hypothesis: AI is trusted for allocation ideas, not for implementation.</i></div>
+    <div><b>2. Proof</b>How do we demonstrate, with numbers and full transparency, what alternatives add to an allocation (diversification, drawdown, risk adjusted return)?<br><br><i>Hypothesis: evidence beats exclusivity as an argument.</i></div>
+    <div><b>3. Pitch</b>What format makes a banker more convincing than an AI: an AI augmented pitch with live simulation, interactive tools and content?<br><br><i>Hypothesis: "test us" beats "trust us".</i></div>
+    <div><b>4. Channel</b>How does Lombard Odier become the answer AI assistants give when a client asks how to invest in alternatives?<br><br><i>Hypothesis: AI visibility can be measured and improved.</i></div>
+  </div>
+  <p>This report combines desk research from more than 40 public sources, a quantitative analysis of 17 years of market data, simple cash flow and option pricing models, and a competitive review. It does not yet include client interviews or internal Lombard Odier data; both are built into the first month of the plan.</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 2</div>
+  <h1>A shifting landscape</h1>
+  <p class="lead">The next generation inherits more, switches more readily, prefers alternatives and consults AI first. At the same time, alternatives are becoming accessible without a private bank. The window to define the bank's role is the next three to five years.</p>
+
+  <h2>2.1 The great wealth transfer and who the next generation clients are</h2>
+  <p>UBS estimates that about USD 83 trillion will change hands over the next 20 to 25 years, of which USD 74 trillion between generations and USD 9 trillion between spouses [3]. In the United States alone, Cerulli projects USD 124 trillion of transfers through 2048, of which USD 105 trillion to heirs [4]. At the very top, 91 people became billionaires through inheritance in the year to April 2025, receiving almost USD 298 billion [6].</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 1</div>
+    <div class="title">The wealth transfer is measured in tens of trillions, and most heirs will have inherited by 2035</div>
+    <img src="../figures/fig_wealth_transfer.png">
+    <div class="src">Source: UBS Global Wealth Report 2025 [3]; Cerulli Associates, December 2024 [4]; Capgemini World Wealth Report 2025 [5].</div>
+  </div>
+  <p>The more important number is loyalty. Capgemini's 2025 survey of more than 6,400 high net worth individuals, including about 5,500 next generation respondents, found that 81% of inheritors plan to move assets to a different firm within one to two years of inheriting [5]. EY's 2025 global wealth survey points in the same direction, with Millennials more likely to switch providers than any other generation [10]. For Lombard Odier, whose family clients often span three generations, each relationship that is not converted at the moment of transfer is lost wealth.</p>
+
+  <h2>2.2 How AI is becoming the first financial adviser</h2>
+  <p>AI is not a future channel; it is the present one. In the UK Investor Index 2025, which surveyed investors with at least GBP 10,000 invested, ChatGPT use for investing rose to 33% of all investors and 70% of those aged 18 to 34, and 77% believe ChatGPT could provide reliable financial advice [9]. The World Economic Forum found that 41% of Gen Z and Millennial investors would allow an AI assistant to manage their investments, against 14% of Baby Boomers [8]. EY reports that 60% of wealth clients globally expect AI to be integrated into their wealth manager's services, with Millennials and Gen X leading [10].</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 2</div>
+    <div class="title">The next generation wants alternatives and already trusts AI</div>
+    <img src="../figures/fig_generation_gap.png">
+    <div class="src">Source: Bank of America Private Bank Study of Wealthy Americans 2024 [7]; World Economic Forum, Global Retail Investor Outlook, March 2025 [8]; UK Investor Index 2025 [9]. Note: the UK comparison is against all investors, not an older cohort.</div>
+  </div>
+  <p>Search behaviour is shifting as well. Gartner predicted in 2024 that traditional search engine volume would fall by 25% by 2026 as users move to AI assistants [14]. For a private bank, this changes how prospects form their shortlist: the first opinion about whether to use a private bank, and which one, may be formed in a conversation with an AI before any human contact.</p>
+  <p>Generational preferences reinforce the point. The Bank of America 2024 study found that 93% of younger wealthy investors plan to increase alternative allocations in the coming years [7]. The next generation is therefore simultaneously the most AI native and the most alternatives hungry client segment. That combination is the opportunity.</p>
+
+  <h2>2.3 The democratisation of alternatives</h2>
+  <p>Access to alternatives, historically the private bank's strongest argument, is being unbundled. Assets in evergreen private market funds doubled from USD 267 billion in 2022 to USD 534 billion in 2025 according to PitchBook data, and a record 123 evergreen funds launched in 2025 [16]. Morningstar and PitchBook see a path to more than USD 1 trillion within five years [16]. In Europe, the ELTIF 2.0 regime that applied from January 2024 brought the number of registered ELTIFs to 159 by March 2025 [17], with assets of about EUR 34 billion by end 2025 [17]. Bain estimates that alternative assets held by private wealth investors will triple from about USD 4 trillion to USD 12 trillion by 2034 [15], even though individuals still typically allocate less than 5% to alternatives [46].</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 3</div>
+    <div class="title">Semi liquid vehicles and regulation are bringing alternatives to individuals at scale</div>
+    <img src="../figures/fig_democratisation.png">
+    <div class="src">Source: PitchBook and Morningstar evergreen fund data [16]; Bain &amp; Company estimates as reported by Capgemini [15]. 2030 bar shows the Morningstar and PitchBook projection path, not a forecast of ours.</div>
+  </div>
+  <p>Tokenisation adds a further layer. In 2025 Citi and SIX Digital Exchange announced a platform to tokenise and custody pre IPO shares, with an initial focus on Switzerland and Asia [18]. Each of these developments lowers the minimum ticket and the friction of access. None of them solves the questions of which manager, how much, when to commit and how to manage the liquidity of a partly illiquid portfolio over time.</p>
+
+  <h2>2.4 Implications for Swiss private banking</h2>
+  <p>The Swiss industry enters this period with record assets but weaker economics. KPMG and the University of St. Gallen report that Swiss private banks managed about CHF 3.5 trillion in 2025, that revenues grew by only 1.5% while costs rose by 3%, and that the number of private banks fell below 80 for the first time [19]. PwC attributes much of the pressure at small and mid sized banks to falling interest income [19]. Regulation is technology neutral but demanding: FINMA's Guidance 08/2024 expects supervised institutions using AI to maintain an inventory, risk classification, testing, explainability and clear accountability [37], while FinSA suitability rules apply to every recommendation, whether or not it was produced with AI support [38].</p>
+  <div class="box">
+    <div class="h">Implication</div>
+    <p>A private bank cannot win the next generation on access alone, nor on liquid asset advice. It can win on the integration of alternatives into a whole portfolio, delivered with the transparency and speed an AI native client expects and with the accountability that only a regulated adviser can offer.</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 3</div>
+  <h1>Competitive landscape</h1>
+  <p class="lead">Lombard Odier competes on three fronts at once: with larger Swiss and global banks that are investing heavily in alternatives and AI, with platforms that sell access without advice, and with general purpose AI that gives advice without access. Only the first group combines both, and it is where the battle for the next generation will be decided.</p>
+
+  <h2>3.1 Swiss private banks</h2>
+  <p><b>UBS</b> is the scale reference, with about USD 7 trillion of invested assets at the end of 2025 [20]. It won Euromoney's "world's best for next gen" award in both 2025 and 2026 [23], is a shareholder in iCapital [28], and is piloting agentic AI tools for advisers and clients from its Singapore AI and Transformation Factory, while stating that relationship managers will not be replaced in the near term [27]. <b>Pictet</b> reached a record CHF 757 billion of assets under management or custody in 2025, with CHF 19 billion of net new money [21]; like Lombard Odier it is a partnership with a strong in house alternatives capability. <b>Julius Baer</b> ended 2025 with CHF 521 billion of assets under management and CHF 14.4 billion of net new money, but with net profit down 25% after write downs [22]. EFG International and Edmond de Rothschild compete on boutique, entrepreneur led relationships; we found no public evidence of a distinctive AI native proposition at either.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 4</div>
+    <div class="title">Lombard Odier competes against far larger balance sheets, so it must win on proposition rather than scale</div>
+    <img class="narrow" src="../figures/fig_swiss_scale.png">
+    <div class="src">Source: Pictet full year 2025 release [21]; Julius Baer full year 2025 results [22]; Lombard Odier full year 2025 results [1]; UBS Form 20-F 2025 [20]. Definitions differ across banks and are not strictly comparable.</div>
+  </div>
+  <p>Lombard Odier itself reported total client assets of CHF 349 billion and record assets under management of CHF 223 billion at the end of 2025, with net profit up 12% to CHF 200 million and a CET1 ratio of 33% [1]. By June 2026, client assets reached a record CHF 367 billion and assets under management CHF 239 billion, with half year net profit up 25% [2]. The bank is growing and highly capitalised; the question is whether it captures the next generation as fast as larger peers do.</p>
+
+  <h2>3.2 Global wealth managers</h2>
+  <p><b>J.P. Morgan Private Bank</b> is the global benchmark for alternatives in wealth management. Euromoney named it world's best for alternative investments in 2026, noting that client alternatives grew from about USD 40 billion in 2010 to more than USD 200 billion by July 2025, that alternatives represent close to half of portfolio assets for its 200 largest clients, and that it has built an evergreen shelf across private equity, private credit and real assets [24]. <b>Goldman Sachs</b> raised a record USD 115 billion of third party alternatives in 2025 and oversees more than USD 625 billion of alternative assets, distributing evergreen G Series funds through its private wealth business and partners [25]. <b>Morgan Stanley</b> was the first wealth manager to partner strategically with OpenAI, and reports that more than 98% of its adviser teams use its AI assistant [26]. These firms show the end state: proprietary alternatives, semi liquid formats and AI equipped advisers, all at once.</p>
+
+  <h2>3.3 Alternative investment platforms</h2>
+  <p>Platforms sell access without advice. <b>iCapital</b> raised more than USD 820 million in 2025 at a valuation above USD 7.5 billion and services USD 945 billion of assets, including USD 257 billion of alternative platform assets [28]; it powers the alternatives shelves of many private banks, which makes access itself a commodity. <b>CAIS</b> plays a similar role for US advisers. <b>Moonfare</b> brought private equity minimums down to USD 75,000 in the United States [29], and <b>Titanbay</b> offers wealth managers institutional access, including a fund of funds built with Mercer with a EUR 100,000 minimum [30]. For an AI native client, these platforms are the natural "how" behind an AI's "what". Their weakness is that they leave the investor alone with the portfolio construction, pacing and liquidity questions.</p>
+
+  <h2>3.4 Digital and AI challengers</h2>
+  <p>Brokers are embedding AI in the investing experience. Robinhood launched Cortex, an AI research assistant, in March 2025 together with a managed portfolio service, Robinhood Strategies, and expanded it to personalised portfolio digests in December 2025 [31]. General purpose assistants such as ChatGPT, Claude and Gemini are, in practice, the most widely used "financial advisers" for the younger cohort [9, 11]. Their strengths are availability, speed, zero cost and a conversational interface. Their limits are documented by research we review in Chapter 4: concentration, bias and no ability to source or execute private investments [12, 13].</p>
+
+  <h2>3.5 Comparison matrix</h2>
+  <table>
+    <tr><th>Player</th><th>Alternatives access</th><th>Typical minimum</th><th>Liquidity model</th><th>Digital and AI</th><th>Advice and integration</th></tr>
+    <tr><td>Lombard Odier</td><td>In house private assets team (PE, private debt, real estate, infrastructure, co investments) [34]; hedge fund feeder launched 2025 [33]; structured products</td><td>High; qualified investor status needed for most funds [38]</td><td>Preference for closed end lock ups over evergreen [35]</td><td>MyLO platform with AI powered recommendations, award winning in 2026 [32]</td><td>Full mandate and advisory, family continuity</td></tr>
+    <tr><td>UBS</td><td>Broad proprietary and third party shelf; iCapital shareholder [28]</td><td>Medium to high</td><td>Evergreen and closed end</td><td>Agentic AI pilots [27]</td><td>Full; next gen award winner [23]</td></tr>
+    <tr><td>J.P. Morgan Private Bank</td><td>USD 200bn+ client alternatives [24]</td><td>Medium to high</td><td>Large evergreen shelf [24]</td><td>Strong</td><td>Full; alternatives close to half for largest clients [24]</td></tr>
+    <tr><td>Goldman Sachs PWM</td><td>USD 625bn+ alternatives platform [25]</td><td>Medium to high</td><td>Evergreen G Series [25]</td><td>Moderate</td><td>Full</td></tr>
+    <tr><td>iCapital, CAIS</td><td>Very broad third party</td><td>Low to medium</td><td>Both</td><td>Strong workflow tools</td><td>None to end client</td></tr>
+    <tr><td>Moonfare, Titanbay</td><td>Curated funds</td><td>USD 75k to EUR 100k [29, 30]</td><td>Closed end, secondary windows</td><td>Fully digital</td><td>Limited</td></tr>
+    <tr><td>General purpose AI</td><td>None; suggests listed proxies</td><td>None</td><td>Daily liquid only</td><td>Best in class conversation</td><td>Generic, unaccountable [12]</td></tr>
+  </table>
+  <div class="exhibit">
+    <div class="label">Exhibit 5</div>
+    <div class="title">Lombard Odier scores high on trust and allocation, but lags on accessible formats and a defined next gen proposition</div>
+    <img src="../figures/fig_competitive_heatmap.png">
+    <div class="src">Source: indicative assessment by the working group, scale 1 (weak) to 5 (leading), based on public sources [1, 20 to 35]. To be validated through mystery shopping and client interviews in month 1. Lombard Odier highlighted.</div>
+  </div>
+
+  <h2>3.6 White spaces Lombard Odier can occupy</h2>
+  <p>Reading the matrix by column rather than by row reveals three white spaces. First, no player combines a conversational, AI native experience with genuine portfolio integration of alternatives: AI and platforms have the experience, banks have the integration. Second, nobody positions the private bank as the referee of AI advice, the place where a client's AI portfolio is tested rather than dismissed. Third, the liquidity question is handled as a product feature (evergreen or not) rather than as a planning service for the client. Lombard Odier's documented preference for lock up structures over semi liquid vehicles [35] is a risk if presented as a constraint, but it becomes an asset if presented transparently as a planned illiquidity premium inside a liquidity budget that we manage for the client. Those three white spaces define the pilot.</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 4</div>
+  <h1>Where AI falls short</h1>
+  <p class="lead">AI is good at proposing an allocation and poor at delivering one. Our data shows that the "alternatives" an AI can actually implement for an individual behave like equities, while the value of genuine alternatives lies in manager selection, commitment pacing and liquidity management. This is the factual basis of the pitch.</p>
+
+  <h2>4.1 What AI does well</h2>
+  <p>We should be candid about what AI does well, because the next generation client knows it. A general purpose assistant explains concepts clearly, proposes sensible strategic allocations for liquid assets, is available at any hour and costs nothing. Research confirms that, when properly guided and supervised, large language models can produce portfolios consistent with a stated risk profile and even competitive stock selections [13]. A pitch that tells a client their AI is wrong will lose. A pitch that shows where their AI stops will win.</p>
+
+  <h2>4.2 What AI cannot do: source, structure, execute and manage illiquidity</h2>
+  <p>Academic evidence on the limits is growing. A 2025 study in PLOS ONE by researchers at the University of St. Gallen found that LLM investment advice increased portfolio risk across all five dimensions measured, including geographic and sector concentration and trend chasing, and that debiasing only partly helped [12]. A 2026 NBER working paper testing four leading models found portfolios concentrated in large technology stocks, with apparent outperformance disappearing after adjusting for costs and the technology tilt [13]. A CNMV working paper documented recurring reasoning failures, including hallucinated or outdated information [13].</p>
+  <p>To quantify the implementation gap, we compared a typical "AI default" portfolio (60% global equities, 40% investment grade bonds) with a diversified allocation that adds the liquid alternatives an AI can recommend to an individual: listed private equity (PSP), a hedge fund replication ETF (QAI) and gold (GLD). We used monthly data from April 2009 to September 2026.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 6</div>
+    <div class="title">The "alternatives" an AI can implement are equities in disguise: correlations of 0.88 to 0.90 with global equities</div>
+    <img class="narrow" src="../figures/fig_corr_matrix.png">
+    <div class="src">Source: Yahoo Finance adjusted monthly prices for ACWI, AGG, GLD, PSP and QAI, April 2009 to September 2026 [42]; working group analysis (analysis/02_diversification.py).</div>
+  </div>
+  <p>The results are unambiguous. Listed private equity has a 0.90 correlation with global equities, and hedge fund replication 0.88. Over the period, the diversified liquid portfolio delivered a compound annual return of 8.6% with 10.1% volatility and a maximum drawdown of 22.3%, against 8.7%, 9.6% and 21.2% for the plain 60/40. In other words, adding liquid alternatives did nothing for the client. It slightly increased risk.</p>
+  <table>
+    <tr><th>April 2009 to September 2026, USD</th><th class="num">CAGR</th><th class="num">Volatility</th><th class="num">Sharpe</th><th class="num">Max drawdown</th><th class="num">2022 return</th></tr>
+    <tr><td>AI default 60/40</td><td class="num">8.7%</td><td class="num">9.6%</td><td class="num">0.77</td><td class="num">&minus;21.2%</td><td class="num">&minus;16.0%</td></tr>
+    <tr><td>Diversified with liquid alternatives</td><td class="num">8.6%</td><td class="num">10.1%</td><td class="num">0.73</td><td class="num">&minus;22.3%</td><td class="num">&minus;16.7%</td></tr>
+    <tr><td>Global equities (ACWI)</td><td class="num">12.6%</td><td class="num">15.0%</td><td class="num">0.77</td><td class="num">&minus;25.7%</td><td class="num">&minus;18.4%</td></tr>
+    <tr><td>Listed private equity (PSP)</td><td class="num">10.8%</td><td class="num">22.3%</td><td class="num">0.51</td><td class="num">&minus;45.2%</td><td class="num">&minus;37.4%</td></tr>
+    <tr><td>Hedge fund replication (QAI)</td><td class="num">3.5%</td><td class="num">5.1%</td><td class="num">0.42</td><td class="num">&minus;13.8%</td><td class="num">&minus;8.7%</td></tr>
+  </table>
+  <p class="small">Source: Yahoo Finance [42]; working group analysis. Monthly rebalancing, before fees and taxes. Sharpe ratio uses the 13 week US Treasury bill yield.</p>
+
+  <div class="exhibit">
+    <div class="label">Exhibit 7</div>
+    <div class="title">With liquid proxies, adding "alternatives" did not reduce drawdowns in any stress episode</div>
+    <img src="../figures/fig_drawdown.png">
+    <div class="src">Source: Yahoo Finance [42]; working group analysis.</div>
+  </div>
+  <p>The contrast with institutional managers is stark. In 2022, the year in which both equities and bonds fell, the HFRI Fund Weighted Composite index lost about 4.2% and the HFRI 500 Macro index gained 14.2% [39], while the hedge fund replication ETF lost 8.7% and the listed private equity ETF 37.4%. The diversification benefit of alternatives is real, but it comes from selected managers and strategies, not from tickers.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 8</div>
+    <div class="title">In 2022, liquid "alternative" wrappers fell with markets; selected hedge fund strategies did not</div>
+    <img src="../figures/fig_2022_stress.png">
+    <div class="src">Source: Yahoo Finance, computed [42]; HFR via WealthBriefing, January 2023 [39]. Blue bars: institutional manager indices. Orange bars: liquid wrappers an AI typically suggests. Indices are not investable and are shown before fees.</div>
+  </div>
+  <p>The traditional hedge is also weaker than it used to be. Between 2012 and 2020, the 36 month rolling correlation between global equities and investment grade bonds averaged about minus 0.07. After 2021 it turned strongly positive, peaking at 0.80 in December 2024 and standing at 0.61 in September 2026. An allocation that relies on bonds alone to diversify equity risk is exposed precisely when diversification is needed.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 9</div>
+    <div class="title">The bond hedge is not constant: the equity bond correlation turned strongly positive after 2021</div>
+    <img src="../figures/fig_rolling_corr.png">
+    <div class="src">Source: Yahoo Finance [42]; working group analysis (data/rolling_correlations.csv).</div>
+  </div>
+
+  <h3>Selection, not access, drives the result</h3>
+  <p>The dispersion of manager returns explains why implementation matters more in alternatives. J.P. Morgan Asset Management reports about 200 basis points of dispersion between top and bottom decile public equity managers over ten years, against 1,960 basis points in private equity [40]. Some researchers argue that part of this dispersion reflects differences in risk rather than skill [43], which reinforces rather than weakens the case for expert due diligence. An AI can say "allocate 10% to private equity"; it cannot tell a client which of two funds with similar track records will land in the top quartile, nor secure an allocation in an oversubscribed fund.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 10</div>
+    <div class="title">Manager selection matters ten times more in private equity than in public equity</div>
+    <img class="narrow" src="../figures/fig_dispersion.png">
+    <div class="src">Source: J.P. Morgan Asset Management, "Considerations and questions for new alternatives investors", 2026 Long Term Capital Market Assumptions, November 2025 [40].</div>
+  </div>
+
+  <h3>Pacing and liquidity cannot be prompted</h3>
+  <p>Private equity commitments are called over several years and returned over a decade. Using the Takahashi and Alexander cash flow model [41], we simulated a client with a CHF 10 million portfolio targeting a 10% private equity allocation. A single commitment of 10% in year one never reaches the target: the allocation peaks below 9% in year five and falls to zero as the fund distributes. A paced programme of annual commitments, adjusted each year, reaches the target in year five and holds it at 10% to 13% thereafter, while diversifying across vintages. This is ongoing portfolio management, with capital calls to fund, distributions to recycle and rebalancing of a partly illiquid portfolio. It is exactly the work an AI assistant cannot do on behalf of a client.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 11</div>
+    <div class="title">Reaching and holding a 10% private equity allocation requires a multi year commitment plan</div>
+    <img src="../figures/fig_pe_pacing.png">
+    <div class="src">Source: Takahashi and Alexander (2002) [41]; illustrative parameters (five year investment period, 12 year fund life, 11% gross annual growth, 5% growth of the liquid portfolio); working group analysis (data/pe_commitment_pacing.csv).</div>
+  </div>
+
+  <h3>Structuring: shaping outcomes, not only choosing assets</h3>
+  <p>Structured products are the third ingredient. A simple three year note with full capital protection and uncapped participation, priced with a 3% rate, 17% volatility and a 1% fee, offers about 47% participation in equity upside. In 20,000 simulated paths, the probability of a loss falls from 28% for direct equity to zero, and the fifth percentile outcome rises from minus 25% to zero, at the cost of a lower median return (7.7% against 16.1% over three years). The point for the pitch is not that this note is right for everyone, but that a private bank can engineer the payoff to the client's objective, which an AI can describe but cannot issue, price or hedge.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 12</div>
+    <div class="title">A capital protected note trades part of the upside for the removal of losses, a trade off only an issuer can build</div>
+    <img src="../figures/fig_structured_note.png">
+    <div class="src">Source: Black Scholes pricing; 20,000 bootstrapped 36 month paths of ACWI monthly returns 2009 to 2026, re centred on 6% a year [42]; working group analysis (data/structured_note_sim.csv). Illustrative, before taxes.</div>
+  </div>
+
+  <h2>4.3 How AI answers today</h2>
+  <p>When a client asks an AI assistant whether to invest in alternatives through a private bank, the research reviewed above suggests three likely patterns that we will verify: generic allocation advice that defaults to ETFs, a tendency to emphasise private bank fees over private bank value, and a lack of specific, current information about individual banks. Rather than assert this, Workstream 4 will run a structured audit in weeks 1 to 4: 50 standardised prompts, in English, French and German, across four leading assistants, repeated monthly, scoring the answers for mentions of Lombard Odier, accuracy of facts, sentiment and recommended implementation. The full protocol is in Appendix B. The baseline becomes a KPI: Lombard Odier's share of voice in AI answers.</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 5</div>
+  <h1>Lombard Odier's right to win</h1>
+  <p class="lead">Lombard Odier already owns every ingredient the AI native client cannot get from AI. What is missing is a demonstration format that turns these ingredients into visible, measurable proof.</p>
+
+  <h2>5.1 Existing alternatives offering and in house capabilities</h2>
+  <p>The bank's private assets team, led since 2007 by Christopher Tritten, invests across private equity, private debt, real estate and infrastructure, including secondaries, European venture capital and co investments; in 2024 it counted 37 professionals, of whom 18 in investment roles [34]. In 2025 the bank expanded its hedge fund offering with a Lombard Odier Hedge Funds Feeder [33], and Lombard Odier Investment Managers sub manages a tail risk hedging fund launched with Société Générale [33]. Structured products are issued and tailored in house. Digitally, the latest version of My LO, launched in 2025, won the WealthBriefing Swiss award for best customer facing digital capabilities, with judges citing AI powered recommendations and real time portfolio insights [32], and the bank describes AI as a core pillar of its technology strategy, with AI support for client advisers as a priority [45]. Its proprietary technology platform, modernised partly with generative AI tools [36], is also offered to other banks.</p>
+  <p>Above all, a 230 year old partnership model gives Lombard Odier something no platform or AI can claim: personal accountability of the owners, and relationships with families that span generations. The next generation does not distrust that; it simply needs to see that it comes with modern evidence.</p>
+
+  <h2>5.2 Proof of diversification: the quantitative case</h2>
+  <p>Chapter 4 established a negative proof: liquid wrappers do not diversify. The positive proof must come from Lombard Odier's own data. Using public data only, we can show the theoretical gain: across 20,000 random long only portfolios, adding alternatives to the investable universe lifts the efficient frontier by about 0.4 to 0.6 percentage points of annual return at 8% to 10% volatility, even with liquid proxies and mostly thanks to gold. With institutional quality private assets and selected hedge funds, which have lower correlations, the gain should be larger, but it must be demonstrated on real track records, net of fees, and with honest treatment of the smoothing in private market valuations.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 13</div>
+    <div class="title">Broadening the opportunity set lifts the frontier, but liquid proxies capture only a small part of the potential</div>
+    <img src="../figures/fig_frontier.png">
+    <div class="src">Source: Yahoo Finance [42]; 20,000 random long only portfolios per universe; working group analysis (data/frontier_pickup.csv). Dots: the two portfolios of Exhibit 7.</div>
+  </div>
+  <p>Workstream 2 will therefore rebuild this analysis with the bank's actual product track records and model allocations, including desmoothed private asset returns, and will publish the methodology to clients. Transparency is the argument: a next generation client who can ask their own AI to check our numbers is more likely to trust them.</p>
+
+  <h2>5.3 Gaps in the way we pitch today</h2>
+  <p>From our own experience as associates and from the competitive review, we see four gaps. The pitch leads with exclusivity and heritage rather than evidence. Alternatives are presented product by product rather than as a role in the portfolio with a liquidity budget. The digital experience is strong for existing clients but there is no dedicated moment of truth for a prospect who arrives with an AI made portfolio. And the bank is largely absent from the places where AI assistants form their answers. The pilot addresses all four.</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 6</div>
+  <h1>The pilot: Bring Your AI Portfolio</h1>
+  <p class="lead">A twelve week controlled test with 30 to 50 next generation clients and prospects. Each participant brings the portfolio their AI proposed; the banker compares it live with a Lombard Odier allocation including alternatives, using transparent simulations; outcomes are measured against a matched control group.</p>
+
+  <h2>6.1 Target segment and selection criteria</h2>
+  <p>Participants are drawn from two pools: next generation members of existing client families, identified by relationship managers, and young entrepreneurs or professionals introduced through the bank's networks after a liquidity event. Inclusion criteria are age 25 to 45, investable assets of CHF 1 million to CHF 25 million, self declared use of an AI assistant for financial questions, and eligibility as a professional or qualified investor under FinSA and CISA, either through assets above CHF 2 million or through a mandate [38]. We aim for 40 participants in the test group and a matched control group of similar size, balanced by age, wealth band, origin (family or new) and booking centre.</p>
+
+  <h2>6.2 The client journey</h2>
+  <div class="journey">
+    <div><b>1. Invitation</b>"Bring your AI portfolio and let us test it." Sent by the relationship manager or a family member, with a short explanation of the exercise.</div>
+    <div><b>2. Preparation</b>The client shares the allocation their AI proposed and the prompt used, through a secure upload in My LO. No personal data enters external AI tools.</div>
+    <div><b>3. Session (60 min)</b>Side by side comparison in the tool: stress tests, correlations, liquidity schedule, commitment plan, fees. The banker uses AI openly to answer questions live.</div>
+    <div><b>4. Follow up</b>A personalised report and a prompt pack inviting the client to ask their own AI to challenge our proposal. A second session to address the challenges.</div>
+    <div><b>5. Decision</b>Mandate, advisory or no action. Measured at 30, 60 and 90 days, including assets entrusted and share in alternatives.</div>
+  </div>
+  <p>The "test us" framing reverses the usual dynamic. Instead of the bank dismissing AI, the client's AI becomes the benchmark, and the bank earns the mandate by visibly adding what the AI cannot: access to selected managers, commitment pacing, liquidity planning, structuring and accountability. The prompt pack is deliberate. By inviting clients to have their AI critique our proposal, we signal confidence and turn the AI from competitor into a second opinion that we have prepared for.</p>
+
+  <h2>6.3 Tools and supporting content</h2>
+  <p>The core tool, provisionally the LO Allocation Lab, is a prototype built on the bank's existing analytics and My LO, not a new system. Its minimum features are: import of an external allocation (manual or file), mapping to asset class proxies, side by side metrics (expected return range, volatility, drawdown, correlation), historical stress scenarios (2008, 2020, 2022), a liquidity budget showing the share of the portfolio available at one month, one year and five years, a private assets commitment schedule (as in Exhibit 11), and an export to a client report with methodology notes. Supporting content includes a two page methodology note written to be readable by both clients and AI assistants, three short videos from portfolio managers on why manager selection matters, and the prompt pack.</p>
+
+  <h2>6.4 Test design and control group</h2>
+  <p>The control group receives the bank's standard approach for the same period. Primary outcomes are measured identically for both groups. Because the sample is small, the pilot is designed as a strong signal test rather than a definitive experiment. At 40 participants per arm, with a 20% baseline conversion, only an uplift of about 25 percentage points in conversion would be statistically detectable (two sided test, 10% significance, 80% power). For a continuous measure such as share of wallet, effects of about 0.56 standard deviations are detectable. We therefore use share of investable wealth entrusted as the primary metric, complement it with qualitative evidence from every session, and define go criteria on effect size rather than on statistical significance alone.</p>
+  <div class="exhibit">
+    <div class="label">Exhibit 14</div>
+    <div class="title">A 30 to 50 person pilot can detect large effects only, so it is designed as a signal test with a continuous primary metric</div>
+    <img src="../figures/fig_pilot_power.png">
+    <div class="src">Source: working group analysis (analysis/04_market_and_pilot.py, data/pilot_power.csv). Two sided test, alpha 10%, power 80%.</div>
+  </div>
+  <div class="box">
+    <div class="h">What the pilot is, in one paragraph</div>
+    <p>A protocol (who, when, how), a tool (the LO Allocation Lab prototype), a standardised 60 minute session script with training for ten bankers, a content pack (methodology note, videos, prompt pack) and a KPI dashboard comparing test and control groups weekly. It runs in weeks 9 to 12 of the project and can continue for a further quarter if the Partners approve.</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 7</div>
+  <h1>Deliverables and how we will produce them</h1>
+  <p class="lead">Ten associates, four workstreams, twelve weeks, three checkpoints with sponsors. Each workstream owns one sub question and one tangible deliverable.</p>
+
+  <h2>7.1 Four workstreams for a team of ten</h2>
+  <table>
+    <tr><th style="width:15%">Workstream</th><th style="width:8%">Team</th><th style="width:32%">Deliverables</th><th>How we will produce them</th></tr>
+    <tr><td>WS1 Client</td><td>3</td><td>Next gen investor personas; AI usage map; pain point list where AI falls short; pilot participant list</td><td>20 to 25 interviews with next gen clients and prospects (guide in Appendix A); a two week AI usage diary with 10 volunteers; analysis of CRM data on next gen relationships and attrition at inheritance</td></tr>
+    <tr><td>WS2 Proof</td><td>3</td><td>Quantitative case on Lombard Odier products; methodology note; LO Allocation Lab prototype</td><td>Extend the analyses in this report to internal track records with Investment Solutions and Risk; desmoothing of private asset returns; prototype built with the digital team on existing My LO components</td></tr>
+    <tr><td>WS3 Pitch</td><td>2</td><td>Session script; banker training; client report template; prompt pack; videos</td><td>Co design with three senior bankers; two rounds of dry runs with colleagues acting as clients; compliance review of every script and template</td></tr>
+    <tr><td>WS4 Channel</td><td>2</td><td>AI answer audit baseline and monthly tracking; AI visibility plan; competitor mystery shopping</td><td>Protocol in Appendix B; content audit of public Lombard Odier pages; recommendations to Marketing on structured, citable content; mystery shopping of four competitors</td></tr>
+  </table>
+  <p>A project lead from the associate group coordinates across workstreams and owns the partner pack. Each workstream has a named senior mentor from the relevant function.</p>
+
+  <h2>7.2 Twelve week plan</h2>
+  <div class="exhibit">
+    <div class="label">Exhibit 15</div>
+    <div class="title">Diagnostic in month one, design in month two, live pilot and synthesis in month three</div>
+    <img src="../figures/fig_gantt.png">
+    <div class="src">Source: working group plan.</div>
+  </div>
+  <p><b>Month 1, diagnostic (weeks 1 to 4).</b> Interviews and diaries; AI answer audit baseline; mystery shopping of UBS, Pictet, Julius Baer and one platform; collection of internal data. Output: diagnostic pack, confirmed or revised hypotheses, validated competitive scoring.</p>
+  <p><b>Month 2, design (weeks 5 to 8).</b> Message house and session script; quantitative case on internal data; prototype of the LO Allocation Lab; KPI definitions and dashboard; recruitment of participants and control matching; compliance sign off. Output: design freeze at checkpoint 2.</p>
+  <p><b>Month 3, test and synthesis (weeks 9 to 12).</b> Pilot sessions with the test group; weekly KPI reading; second sessions after client AI challenge; synthesis and recommendation to the Partners. Output: partner pack with a go or no go recommendation and a roll out plan.</p>
+
+  <h2>7.3 Governance and checkpoints</h2>
+  <table>
+    <tr><th>Checkpoint</th><th>Week</th><th>Participants</th><th>Decision</th></tr>
+    <tr><td>Kick off</td><td>1</td><td>Sponsors, project lead, workstream leads</td><td>Confirm scope, data access, mentors</td></tr>
+    <tr><td>Checkpoint 1, diagnostic</td><td>4</td><td>Sponsors, Compliance, Investment Solutions</td><td>Confirm hypotheses and pilot target segment</td></tr>
+    <tr><td>Checkpoint 2, design freeze</td><td>8</td><td>Sponsors, Compliance, Digital, Risk</td><td>Approve tool, script, content and participant list</td></tr>
+    <tr><td>Partner decision</td><td>12</td><td>Managing Partners</td><td>Go, adjust or stop; roll out budget</td></tr>
+  </table>
+  <p>Weekly 30 minute stand ups between workstream leads, and a fortnightly written update to sponsors, keep the time burden for senior staff low. Each associate commits about 20% of their time; the project lead about 40%.</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 8</div>
+  <h1>Economics and KPIs</h1>
+  <p class="lead">The pilot is cheap and the upside is asymmetric. The largest value lever is not new money from prospects, but retention of family wealth at the moment it changes generation.</p>
+
+  <h2>8.1 Success metrics</h2>
+  <table>
+    <tr><th>Metric</th><th>Definition</th><th>Type</th><th>Target for go</th></tr>
+    <tr><td>Share of investable wealth entrusted</td><td>Assets placed or committed with Lombard Odier at 90 days, divided by self declared investable wealth</td><td>Primary</td><td>Test exceeds control by at least 10 points</td></tr>
+    <tr><td>Conversion to proposal and mandate</td><td>Share of participants receiving and accepting a mandate or advisory proposal</td><td>Secondary</td><td>Directionally higher than control</td></tr>
+    <tr><td>Alternatives in accepted allocations</td><td>Weight of private assets, hedge funds and structured products in accepted proposals</td><td>Secondary</td><td>At least 15% on average</td></tr>
+    <tr><td>Perceived value versus AI</td><td>Share rating the session more useful than their AI assistant (post session survey)</td><td>Experience</td><td>At least 70%</td></tr>
+    <tr><td>Trust shift</td><td>Change in trust score in Lombard Odier, before and after</td><td>Experience</td><td>Positive and significant within the test group</td></tr>
+    <tr><td>AI share of voice</td><td>Share of audit prompts where an assistant names Lombard Odier accurately</td><td>Leading</td><td>Baseline set; tracked monthly</td></tr>
+    <tr><td>Suitability and compliance</td><td>Incidents, complaints, suitability exceptions</td><td>Guardrail</td><td>Zero</td></tr>
+  </table>
+
+  <h2>8.2 Cost of the pilot</h2>
+  <table>
+    <tr><th>Item</th><th class="num">Estimate, CHF</th><th>Comment</th></tr>
+    <tr><td>Prototype of the LO Allocation Lab</td><td class="num">60,000</td><td>Internal digital team time and data licences; built on existing components</td></tr>
+    <tr><td>Client sessions and events</td><td class="num">25,000</td><td>Venues, hospitality, travel between booking centres</td></tr>
+    <tr><td>Research incentives and panel</td><td class="num">10,000</td><td>Interview and diary participants (non clients)</td></tr>
+    <tr><td>AI tools and audit subscriptions</td><td class="num">5,000</td><td>Enterprise licences for testing, within FINMA AI governance [37]</td></tr>
+    <tr><td>Content production</td><td class="num">5,000</td><td>Videos and design of methodology note</td></tr>
+    <tr><td>Contingency</td><td class="num">15,000</td><td>About 15%</td></tr>
+    <tr><td><b>Total cash budget</b></td><td class="num"><b>120,000</b></td><td>Excludes associate time (about 10 people at 20% for 12 weeks)</td></tr>
+  </table>
+  <p class="small">All amounts are working group estimates to be confirmed with Finance and Digital at checkpoint 1.</p>
+
+  <h2>8.3 Potential upside at scale</h2>
+  <p>We model two value pools. The first is retention. If, as a placeholder assumption, 20% of Lombard Odier's CHF 367 billion of client assets [2] passes to a new generation within ten years, about CHF 73 billion is in play. With 81% of inheritors planning to move [5], every 10 points of additional retention preserve about CHF 7 billion of assets, or roughly CHF 50 million of annual revenue at an illustrative margin of 0.7%. The second pool is new money from next generation prospects. The model below is intentionally simple and every input is a placeholder to be replaced by internal data.</p>
+  <table>
+    <tr><th>Assumption (placeholder)</th><th class="num">Value</th></tr>
+    <tr><td>Next generation prospects reached per year at roll out</td><td class="num">400</td></tr>
+    <tr><td>Average investable assets</td><td class="num">CHF 6m</td></tr>
+    <tr><td>Baseline conversion and share of wallet</td><td class="num">15%, 35%</td></tr>
+    <tr><td>Scenario conversion (conservative, base, ambitious)</td><td class="num">17%, 20%, 25%</td></tr>
+    <tr><td>Scenario share of wallet</td><td class="num">40%, 45%, 55%</td></tr>
+    <tr><td>Alternatives share of allocation (baseline 10%)</td><td class="num">15%, 20%, 25%</td></tr>
+    <tr><td>Revenue margin on core assets and on alternatives</td><td class="num">0.75%, 1.20%</td></tr>
+  </table>
+  <div class="exhibit">
+    <div class="label">Exhibit 16</div>
+    <div class="title">New money alone could add CHF 0.2 to 1.0 billion of assets within five years; retention is worth an order of magnitude more</div>
+    <img src="../figures/fig_scale_economics.png">
+    <div class="src">Source: working group model (analysis/04_market_and_pilot.py, data/scale_economics.csv). Illustrative only; all inputs are placeholder assumptions.</div>
+  </div>
+  <p>Even the conservative scenario repays the pilot budget many times over. The decision is therefore not about the cost of the pilot, but about the cost of not learning, while UBS and J.P. Morgan consolidate their positions with the next generation [23, 24].</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 9</div>
+  <h1>Risks and mitigations</h1>
+  <p class="lead">The main risks are regulatory, reputational and methodological. Each has a clear mitigation, and Compliance is involved from week one.</p>
+  <table>
+    <tr><th style="width:22%">Risk</th><th style="width:38%">Description</th><th>Mitigation</th></tr>
+    <tr><td>Suitability and FinSA</td><td>Recommending illiquid alternatives to clients for whom they are not suitable, or to clients who are not qualified investors [38]</td><td>Standard suitability and appropriateness checks before every proposal; eligibility screen in participant selection; session script reviewed by Compliance; no product promotion in the comparison itself</td></tr>
+    <tr><td>Use of AI and data protection</td><td>Client data entered into external AI tools; unexplainable outputs [37]</td><td>No client data in public AI tools; tool runs in the bank's environment; AI use documented in the bank's AI inventory and risk classification under FINMA Guidance 08/2024</td></tr>
+    <tr><td>Illiquidity</td><td>Clients underestimate lock ups and capital calls; tension with the bank's preference for closed end structures [35]</td><td>Liquidity budget made explicit in every proposal; commitment schedule shown in the tool; feeder and evergreen options reviewed where appropriate</td></tr>
+    <tr><td>Conflicts of interest</td><td>Perception that the comparison favours in house products</td><td>Methodology published; open architecture options shown alongside in house funds; fees displayed in full</td></tr>
+    <tr><td>Reputation</td><td>A session goes badly and is shared on social media; or the bank is seen as dismissing AI</td><td>"Test us" framing; trained bankers; small, invitation only cohort; escalation path to sponsors</td></tr>
+    <tr><td>Methodology</td><td>Small sample, selection bias, smoothed private asset returns flattering results</td><td>Matched control group; pre registered KPIs; desmoothing of private returns; results reported with uncertainty</td></tr>
+    <tr><td>Execution</td><td>Associate time competes with client work; prototype delays</td><td>Sponsor protected 20% time; prototype scoped to minimum features; fallback to a spreadsheet based tool</td></tr>
+  </table>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Chapter 10</div>
+  <h1>Decision requested from the Partners</h1>
+  <p class="lead">We ask for a decision today to launch the project, and propose the criteria for a second decision in twelve weeks.</p>
+  <h2>Today</h2>
+  <ol class="plain">
+    <li>Approve the twelve week project and the Bring Your AI Portfolio pilot as described in Chapters 6 and 7.</li>
+    <li>Approve a cash budget of about CHF 120,000 and 20% protected time for the ten associates.</li>
+    <li>Nominate two sponsors: one Managing Partner and the Head of Investment Solutions, with named mentors in Compliance, Digital and Private Assets.</li>
+    <li>Grant access to anonymised data on next generation relationships, attrition at inheritance and product track records.</li>
+  </ol>
+  <h2>In week 12</h2>
+  <p>We will recommend a go if the test group exceeds the control group by at least 10 points of share of investable wealth entrusted, accepted allocations contain at least 15% alternatives on average, at least 70% of participants rate the session as more useful than their AI assistant, and there are zero compliance incidents. A go would mean extending the approach to all next generation relationships in 2027, industrialising the LO Allocation Lab inside My LO, training all relationship managers who cover next generation clients, and launching the AI visibility plan. A partial result would lead to an adjusted second pilot; a negative result would close the project with the learning documented.</p>
+  <div class="box">
+    <div class="h">The message for the next generation</div>
+    <p>"Your AI can tell you to invest in alternatives. We can show you which ones, how much, when, and what happens to your portfolio when markets break. Bring your AI portfolio and test us."</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Appendix A</div>
+  <h1>Client interview guide</h1>
+  <p>Semi structured, 45 minutes, conducted by two associates (one leads, one takes notes). Participants: 20 to 25 next generation clients, prospects and young entrepreneurs. Consent obtained; notes anonymised.</p>
+  <h3>Opening (5 minutes)</h3>
+  <p>1. Tell us about your situation today: your work, your family's relationship with wealth, the decisions you expect to face in the next five years.</p>
+  <h3>AI usage (10 minutes)</h3>
+  <p>2. When did you last ask an AI assistant a question about money or investing? What did you ask and what did you do with the answer? 3. Which assistant do you use and why? Do you pay for it? 4. What do you trust it for, and what do you not trust it for? 5. Has an AI ever proposed a portfolio to you? Could you show it to us?</p>
+  <h3>Alternatives (10 minutes)</h3>
+  <p>6. What comes to mind when you hear private equity, private credit, hedge funds or structured products? 7. Have you invested in any of them, directly or through a platform? How did you choose? 8. How do you feel about locking money up for five to ten years? What would make it acceptable?</p>
+  <h3>The role of a private bank (15 minutes)</h3>
+  <p>9. In the age of AI, why would you use a private bank to invest? Why not? 10. What would a banker need to show you, in one meeting, to earn a mandate? 11. If we compared your AI portfolio with ours, what would you want to see? 12. Would you ask your AI to check our proposal? What would convince you if it disagreed?</p>
+  <h3>Close (5 minutes)</h3>
+  <p>13. If you were a Partner of this bank, what would you change first for people like you? 14. Would you be willing to take part in a pilot session?</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Appendix B</div>
+  <h1>AI answer audit protocol</h1>
+  <p><b>Objective.</b> Measure, monthly, how leading AI assistants answer next generation investors' questions about private banking and alternatives, and Lombard Odier's share of voice and accuracy in those answers.</p>
+  <p><b>Assistants.</b> Four widely used general purpose assistants, in their default consumer configuration, with web access enabled where available, in a clean session without memory.</p>
+  <p><b>Prompts.</b> 50 prompts in three languages (English, French, German) across five families: (1) allocation ("I am 32, I inherited CHF 3 million, how should I invest it?"); (2) alternatives ("Should I invest in private equity, and how?"); (3) channel ("Do I need a private bank to invest in private markets?"); (4) provider ("Which Swiss private bank is best for private equity access?"); (5) challenge ("My private bank proposes 20% alternatives with a five year lock up. Is that reasonable?"). Each prompt is run three times to capture variability.</p>
+  <p><b>Scoring.</b> For each answer: mention of Lombard Odier (yes or no, position), factual accuracy of any statement about the bank, sentiment towards private banks, implementation recommended for alternatives (ETF, platform, private bank, direct), presence of suitability caveats. Two associates score independently; disagreements are reconciled.</p>
+  <p><b>Outputs.</b> Baseline share of voice and accuracy by assistant and language; list of inaccuracies to correct through public content; monthly trend line as a leading KPI.</p>
+  <p><b>Governance.</b> No client data used. Audit tools registered in the bank's AI inventory under FINMA Guidance 08/2024 [37]. Results shared with Marketing and Compliance.</p>
+</section>
+
+<section class="chapter">
+  <div class="kicker">Appendix C</div>
+  <h1>Methodology and data</h1>
+  <p><b>Market data.</b> Monthly adjusted closing prices (dividends reinvested) from Yahoo Finance for ACWI (iShares MSCI ACWI), AGG (iShares Core US Aggregate Bond), PSP (Invesco Global Listed Private Equity), QAI (IQ Hedge Multi Strategy Tracker) and GLD (SPDR Gold Shares), March 2009 to September 2026, 211 monthly observations [42]. The risk free rate is the 13 week US Treasury bill yield. All returns are in USD, before fees and taxes. Results in CHF would differ through currency effects.</p>
+  <p><b>Portfolios.</b> AI default: 60% ACWI and 40% AGG. Diversified with liquid alternatives: 45% ACWI, 25% AGG, 10% PSP, 15% QAI, 5% GLD. Monthly rebalancing.</p>
+  <p><b>Efficient frontier.</b> 20,000 long only portfolios drawn from a Dirichlet distribution for each universe (two assets and five assets), using historical annualised means and covariances. The frontier is the upper envelope by volatility bucket. Historical means are not forecasts.</p>
+  <p><b>Private equity pacing.</b> Takahashi and Alexander (2002) model [41] with contribution rates of 25%, 33%, 50%, 50% and 100% of remaining commitment over five years, 12 year fund life, bow factor 2.5 and 11% annual growth. Client portfolio of CHF 10 million growing at 5% a year. Paced plan commits 4.5%, 3.5%, 3%, 2.5% and then 2% of the portfolio each year.</p>
+  <p><b>Structured note.</b> Three year zero coupon bond plus at the money call priced with Black Scholes (rate 3%, volatility 17%, issuer fee 1%), giving 47.5% participation. Outcomes from 20,000 paths of 36 monthly returns resampled from ACWI history and re centred on a 6% annual drift to avoid the bias of the 2009 to 2026 bull market.</p>
+  <p><b>Pilot statistics.</b> Minimum detectable effects for a two sample comparison of proportions (baseline 20%) and of means (Cohen's d), two sided, alpha 10%, power 80%.</p>
+  <p><b>Limitations.</b> Liquid proxies do not represent the institutional private funds and hedge funds offered by Lombard Odier; this is precisely the point made in Chapter 4, but it also means the positive case for real alternatives must be built on internal track records in Workstream 2. HFRI indices are subject to survivorship and self reporting biases. The competitive scoring is a judgement to be validated. Economic scenarios rely on placeholder assumptions.</p>
+  <p><b>Reproducibility.</b> All code is in <i>Report/analysis</i> (common.py, 01_download_market_data.py, 02_diversification.py, 03_implementation_models.py, 04_market_and_pilot.py) and all outputs in <i>Report/data</i> and <i>Report/figures</i>. Running the scripts in order regenerates every exhibit.</p>
+</section>
+
+<section class="chapter refs">
+  <div class="kicker">Appendix D</div>
+  <h1>Sources</h1>
+  <p>[1] Lombard Odier, "Lombard Odier reports full year results for 2025", February 2026. https://www.lombardodier.com/insights/2026/february/lombard-odier-reports-full-year.html</p>
+  <p>[2] WealthBriefing, "Lombard Odier posts record SFr239 billion AuM in H1 2026", 2026; Hubbis, "Lombard Odier reports record client assets and 25 percent rise in half year net profit". https://www.wealthbriefing.com/html/article.php/lombard-odier-posts-record-sfr239-billion-aum-in-h1-2026 ; https://hubbis.com/news/lombard-odier-reports-record-client-assets-and-25-percent-rise-in-half-year-net-profit</p>
+  <p>[3] UBS, Global Wealth Report 2025. https://www.ubs.com/us/en/wealth-management/insights/global-wealth-report.html</p>
+  <p>[4] Cerulli Associates, "Cerulli anticipates $124 trillion in wealth will transfer through 2048", December 2024. https://www.cerulli.com/press-releases/cerulli-anticipates-124-trillion-in-wealth-will-transfer-through-2048</p>
+  <p>[5] Capgemini Research Institute, World Wealth Report 2025, June 2025, and press release. https://www.capgemini.com/wp-content/uploads/2025/06/WWR_2025.pdf ; https://www.capgemini.com/news/press-releases/north-america-high-net-worth-individual-population-surges-while-europe-and-middle-east-shrink/</p>
+  <p>[6] UBS, Billionaire Ambitions Report 2025. https://www.ubs.com/content/dam/assets/wm/static/billionaire-ambition-report/ubs-billionaire-ambitions-report-2025-sg.pdf</p>
+  <p>[7] Bank of America Private Bank, 2024 Study of Wealthy Americans, as reported by Private Banker International, June 2024. https://www.privatebankerinternational.com/news/bofa-private-bank-reveals-generational-divide-in-wealth-management-younger-investors/</p>
+  <p>[8] World Economic Forum, "New research finds retail investing shift towards younger investors, reshaping market trends", March 2025. https://www.weforum.org/media/new-research-finds-retail-investing-shift-towards-younger-investors-reshaping-market-trends/</p>
+  <p>[9] NationalWorld, "Investor Index 2025: confidence holds firm amidst tariffs and turbulence", 2025. https://www.nationalworld.com/business/investor-index-2025-confidence-holds-firm-amidst-tariffs-and-turbulence-5180451</p>
+  <p>[10] EY, 2025 Global Wealth Research Report, May 2025, and coverage by Spear's. https://www.ey.com/en_au/newsroom/2025/05/new-ey-survey-2025 ; https://spearswms.com/wealth/clients-want-wealth-managers-to-use-ai-to-take-control-of-their-financial-planning/</p>
+  <p>[11] Chatterji, Cunningham, Deming, Hitzig, Ong, Shan and Wadman, "How People Use ChatGPT", NBER Working Paper 34255, September 2025; OpenAI user figures. https://www.nber.org/papers/w34255 ; https://openai.com/index/how-people-are-using-chatgpt/</p>
+  <p>[12] Winder, Hildebrand and Hartmann, "Biased echoes: Large language models reinforce investment biases and increase portfolio risks of private investors", PLOS ONE, 2025; University of St. Gallen newsroom. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0325459 ; https://www.unisg.ch/en/newsroom/be-careful-financial-advice-from-ai-comes-with-risks/</p>
+  <p>[13] NBER working paper on LLM built portfolios (2026), as summarised by Yahoo Finance, "New research reveals risks of using AI for stock investment advice"; Crisóstomo and Mykhalyuk, CNMV Working Paper No. 96, March 2026; Ko and Lee, arXiv 2308.06260 (2023). https://finance.yahoo.com/markets/stocks/articles/research-reveals-risks-using-ai-165044697.html ; https://arxiv.org/abs/2308.06260</p>
+  <p>[14] Gartner, "Gartner predicts search engine volume will drop 25% by 2026, due to AI chatbots and other virtual agents", February 2024; Search Engine Land coverage. https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026-due-to-ai-chatbots-and-other-virtual-agents ; https://searchengineland.com/?p=437650</p>
+  <p>[15] Capgemini, "The rise of alternative investments", citing Bain &amp; Company; CAIA Association, "Young money: quantifying the private wealth management opportunity", January 2025. https://www.capgemini.com/insights/expert-perspectives/the-rise-of-alternative-investments/ ; https://caia.org/blog/2025/01/13/young-money-quantifying-private-wealth-management-opportunity/</p>
+  <p>[16] Morningstar and PitchBook, "New quarterly report brings transparency to rapidly expanding evergreen fund universe", December 2025; PitchBook, Q4 2025 Benchmarking the Evergreen Evolution; Preqin, "Evergreen funds set off at record breaking pace in 2026". https://newsroom.morningstar.com/news/news-details/2025/New-Quarterly-Report-from-Morningstar-and-PitchBook-Brings-Transparency-to-Rapidly-Expanding-Evergreen-Fund-Universe/default.aspx ; https://www.preqin.com/news/evergreen-funds-set-off-at-record-breaking-pace-in-2026</p>
+  <p>[17] BNP Paribas Securities Services, "ELTIF 2.0: new opportunities in 2025 for European AIFs" (ESMA register data); EFAMA, "Updated ELTIF 2.0 publication answers key questions for asset managers" (Scope data). https://securities.cib.bnpparibas/eltif-2-0-regulation/ ; https://www.efama.org/newsroom/news/updated-eltif-2-0-publication-answers-key-questions-asset-managers</p>
+  <p>[18] Cointelegraph, "Citi and SDX to tokenize private markets", May 2025. https://cointelegraph.com/news/citi-sdx-tokenize-private-markets</p>
+  <p>[19] KPMG Switzerland and University of St. Gallen, Clarity on Swiss Private Banks, June 2026; PwC Switzerland, Private Banking Market Update 2026. https://kpmg.com/ch/en/media/press-releases/2026/06/clarity-swiss-private-banks-insights.html ; https://www.pwc.ch/en/insights/strategy/private-banking-market-update-2026.html</p>
+  <p>[20] UBS Group AG, Form 20-F for fiscal year 2025. https://www.sec.gov/Archives/edgar/data/0001610520/000161052026000023/ubs-20251231.htm</p>
+  <p>[21] Pictet Group, "Release of full year results for 2025". https://www.pictet.com/corporate-news/release-full-year-2025-figures</p>
+  <p>[22] finews.asia, "Julius Baer: profit drops while AuM hits record in 2025", February 2026. https://www.finews.asia/finance/44631-julius-baer-stefan-bollinger-financial-results-2025</p>
+  <p>[23] Euromoney, Private Banking Awards 2026 results, "The world's best for next gen 2026: UBS". https://www.euromoney.com/awards/private-banking-awards/pb-2026-results</p>
+  <p>[24] Euromoney, "The world's best for alternative investments 2026: JPMorgan Private Bank". https://www.euromoney.com/article/4g5m6u1urreockw0c0s4o4c44/private-banking/the-worlds-best-for-alternative-investments-2026-jpmorgan-private-bank/</p>
+  <p>[25] Nasdaq, "Goldman's wealth management business emerges as durable growth engine", 2026; Goldman Sachs Q4 2025 earnings presentation. https://www.nasdaq.com/articles/goldmans-wealth-management-business-emerges-durable-growth-engine ; https://www.goldmansachs.com/pressroom/press-releases/current/pdfs/2025-q4-earnings-results-presentation.pdf</p>
+  <p>[26] OpenAI, "Morgan Stanley" customer story. https://openai.com/index/morgan-stanley/</p>
+  <p>[27] Hubbis, "Reimagining private banking in Asia: UBS's Cassandra Venn on the role of AI, relationship managers and human centric tech", October 2025. https://www.hubbis.com/article/reimagining-private-banking-in-asia-ubs-cassandra-venn-on-the-role-of-ai-relationship-managers-and-human-centric-tech</p>
+  <p>[28] WealthManagement.com, "iCapital raises $820m in latest financing round", July 2025; iCapital press release. https://www.wealthmanagement.com/alternative-investments/icapital-raises-820m-in-latest-financing-round ; https://www.silicon.co.uk/press-release/icapital-completes-over-820-million-capital-raise-valuation-surpasses-7-5-billion</p>
+  <p>[29] Business Wire, "Moonfare surpasses $150M AuM in the US and lowers investing minimums", September 2022. https://www.businesswire.com/news/home/20220914005256/en/</p>
+  <p>[30] Investment Week, "Titanbay launches private markets fund of funds for wealth managers", 2024. https://investmentweek.co.uk/news/4353759/titanbay-launches-private-markets-fund-funds-wealth-managers</p>
+  <p>[31] Robinhood, "Introducing Strategies, Banking and Cortex", March 2025, and December 2025 event release. https://robinhood.com/us/en/newsroom/introducing-strategies-banking-and-cortex ; https://robinhood.com/us/en/newsroom/robinhood-presents-yes-no-event</p>
+  <p>[32] Lombard Odier, "Lombard Odier wins best customer facing digital capabilities at the WealthBriefing Swiss Awards 2026", February 2026; "Lombard Odier earns dual recognition at the PWM Wealth Tech Awards 2026", March 2026. https://www.lombardodier.com/insights/2026/february/lombard-odier-wins-best-customer.html ; https://www.lombardodier.com/insights/2026/march/lombard-odier-recognised.html</p>
+  <p>[33] Lombard Odier, "End of year letter from the Partners", December 2025; Société Générale, "Société Générale and Lombard Odier Investment Managers collaborate to launch a tail risk hedging fund", November 2025. https://www.lombardodier.com/insights/2025/december/end-of-year-letter-from-the-part.html ; https://wholesale.banking.societegenerale.com/en/news-insights/all-news-insights/news-details/news/societe-generale-and-lombard-odier-investment-managers-collaborate-to-launch-a-tail-risk-hedging-fund/</p>
+  <p>[34] Lombard Odier, Private Assets. https://am.lombardodier.com/home/asset-classes/alternatives/lombard-odier-private-equity-opp.html</p>
+  <p>[35] Asian Private Banker, "Lombard Odier rejects semi liquid hype, doubles down on private asset lock ups". https://asianprivatebanker.com/private-wealth/lombard-odier-rejects-semi-liquid-hype-doubles-down-on-private-asset-lock-ups/</p>
+  <p>[36] MongoDB, "MongoDB collaborates with Lombard Odier to modernize core banking technology", via Stock Titan. https://stocktitan.net/news/MDB/mongo-db-collaborates-with-lombard-odier-to-modernize-core-banking-89drdajfdlq7.html</p>
+  <p>[37] FINMA, Guidance 08/2024 "Governance and risk management when using artificial intelligence", 18 December 2024, as summarised by Lenz &amp; Staehelin. https://www.lenzstaehelin.com/fr/news-insights/browse-thought-leadership-insights/insights-detail/finma-issues-guidance-on-ai-use-in-financial-institutions/</p>
+  <p>[38] Swiss Financial Services Act (FinSA) and Collective Investment Schemes Act (CISA), client segmentation and qualified investors, as described by EFG International and Union Bancaire Privée. https://www.efggroup.com/finsa.html ; https://www.ubp.com/en/legal-aspects/finsa</p>
+  <p>[39] WealthBriefing, "Macro hedge funds set hottest pace in 2022" (HFR data), January 2023. https://www.wealthbriefing.com/html/article.php/macro-hedge-funds-set-hottest-pace-in-2022</p>
+  <p>[40] J.P. Morgan Asset Management, "Considerations and questions for new alternatives investors", 2026 Long Term Capital Market Assumptions, November 2025. https://am.jpmorgan.com/ch/en/asset-management/adv/insights/portfolio-insights/alternatives/considerations-and-questions-for-new-investors/</p>
+  <p>[41] Takahashi, D. and Alexander, S., "Illiquid Alternative Asset Fund Modeling", Journal of Portfolio Management, 28(2), 2002, pp. 90 to 100.</p>
+  <p>[42] Yahoo Finance historical data for ACWI, AGG, PSP, QAI, GLD and ^IRX, retrieved October 2026 via the yfinance library. https://finance.yahoo.com</p>
+  <p>[43] Verdad Capital, "The dispersion delusion". https://verdadcap.com/archive/the-dispersion-delusion</p>
+  <p>[44] KPMG Switzerland, "Swiss private banks: assets under management at record high", June 2025. https://kpmg.com/ch/en/media/press-releases/2025/06/clarity-swiss-private-banks-insights.html</p>
+  <p>[45] Hubbis, "From performance to purpose: Lombard Odier on intergenerational wealth, intelligent technology and enduring partnerships in Asia", 2026. https://hubbis.com/article/from-performance-to-purpose-lombard-odier-on-intergenerational-wealth-intelligent-technology-and-enduring-partnerships-in-asia</p>
+  <p>[46] Financial Planning, "Not just for the uber wealthy: alts are also for regular rich folks, report says" (Preqin, citing Bain &amp; Company). https://financial-planning.com/news/all-wealthy-investors-not-just-the-super-rich-should-embrace-alternative-assets-preqin-says</p>
+</section>
+
+</body>
+</html>
